@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    overflow: hidden;
+}
+
+.curser-pointer{
+    cursor: pointer;
+}
+:root {
+    --primary-bg-color: #040508;
+    --secondary-bg-color: black;
+    --primary-color: hsl(342, 97%, 70%);
+    --secondary-color: rgb(170, 170, 170);
+    --hover-color: hsl(69.66deg 97.39% 70%),
+    --border: 2px solid #363947;
+    --border-head: #363947;
+    --text-color: white;
+    --text-color-secondary: rgb(170, 170, 170);
+     --text-color-primary:#ff1414;
+}
+.dark-mode {
+    --primary-bg-color: white;
+    --secondary-bg-color: white;
+    --primary-color: hsl(69.66deg 97.39% 70%);
+    --hover-color: red,
+    --secondary-color: grey;
+    --border: 2px solid #dfe8f1;
+    --border-head: #dfe8f1;
+    --text-color: black;
+    --text-color-secondary: rgb(170, 170, 170);
+
+    --text-color-primary:#0c0e45;
+}
+
+.common-color {
+    background-color: var(--primary-bg-color);
+}
+.bg-black-color {
+    background-color: var(--secondary-bg-color);
+}
+
+.text-white-color {
+    color: var(--text-color);
+}
+.text-secondary-color {
+    color: var(--text-color-secondary);
+}
+.text-primary-color {
+    color: var(--text-color-primary);
+}
+
