@@ -1,1 +1,60 @@
-<p>to-do-presentation works!</p>
+<div class="p-4">
+    <div class="d-flex flex-column pb-5">
+        <div class="my">
+            <button class="btn btn-primary" (click)="toggleInputVisibility()"><span class="fs-5">+</span> New
+                Item</button>
+        </div>
+
+        <div class="mt-2 w-25" >
+            <form action="">
+                <div *ngIf="isInputVisible" class="mb-3">
+                    <input type="text" class="form-control" 
+                        placeholder="Enter task">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="example-container">
+                <h2 class="mb-2">New</h2>
+                <div cdkDropList #newData="cdkDropList" [cdkDropListData]="all"
+                    [cdkDropListConnectedTo]="[ActiveList,resolvedList,closeList]" class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of all" cdkDrag>{{item}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="example-container">
+                <h2 class="mb-2">Active</h2>
+                <div cdkDropList #ActiveList="cdkDropList" [cdkDropListData]="active"
+                    [cdkDropListConnectedTo]="[newData,resolvedList,closeList,]" class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of active" cdkDrag>{{item}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="example-container">
+                <h2 class="mb-2">Resolved</h2>
+                <div cdkDropList #resolvedList="cdkDropList" [cdkDropListData]="resolved"
+                    [cdkDropListConnectedTo]="[newData,resolvedList,closeList,ActiveList]" class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of resolved" cdkDrag>{{item}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="example-container">
+                <h2 class="mb-2">close</h2>
+                <div cdkDropList #closeList="cdkDropList" [cdkDropListData]="close"
+                    [cdkDropListConnectedTo]="[newData,resolvedList,closeList,ActiveList]" class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of close" cdkDrag>{{item}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
